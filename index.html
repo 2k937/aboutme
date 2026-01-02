@@ -8,6 +8,13 @@
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- SEO / Discord Embed -->
+<meta name="description" content="24k – Web & Discord Bot Developer">
+<meta property="og:title" content="24k | Developer">
+<meta property="og:description" content="Modern websites & Discord bots">
+<meta property="og:url" content="https://2k937.github.io">
+<meta name="theme-color" content="#5865F2">
+
 <style>
 :root {
   --bg: #0b0f14;
@@ -57,16 +64,10 @@ body {
   padding: 10px 14px;
   cursor: pointer;
   backdrop-filter: blur(10px);
-  transition: .3s ease;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.05);
 }
 
 .hero {
   text-align: center;
-  animation: fadeUp 1s ease forwards;
 }
 
 .hero h1 {
@@ -97,8 +98,7 @@ body {
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
-  transition: all .3s ease;
-  backdrop-filter: blur(12px);
+  transition: .3s ease;
 }
 
 .btn:hover {
@@ -107,7 +107,6 @@ body {
 
 .section {
   margin-top: 100px;
-  animation: fadeUp 1s ease forwards;
 }
 
 .section h2 {
@@ -117,7 +116,7 @@ body {
 
 .tech {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
 
@@ -131,7 +130,7 @@ body {
 }
 
 .tech-card:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-6px);
 }
 
 .tech-card img {
@@ -146,11 +145,6 @@ body {
   color: var(--muted);
   font-size: .9rem;
 }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 </style>
 </head>
 
@@ -160,85 +154,135 @@ body {
 
 <div class="container">
 
-  <div class="hero">
-    <h1>24k</h1>
-    <div class="typing" id="typing"></div>
+<!-- HERO -->
+<div class="hero">
+  <h1>24k</h1>
+  <div class="typing" id="typing"></div>
 
-    <div class="buttons">
-      <a class="btn" href="https://discord.com/app" target="_blank">
-        Message me on Discord (@24k_onlyy)
-      </a>
-      <a class="btn" href="https://github.com/2k937" target="_blank">
-        GitHub
-      </a>
+  <div class="buttons">
+    <a class="btn" href="https://discord.com/users/@me" target="_blank">
+      Add me on Discord (@24k_onlyy)
+    </a>
+    <a class="btn" href="https://github.com/2k937" target="_blank">
+      GitHub
+    </a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <h2>What I Do</h2>
+  <p style="color:var(--muted);max-width:720px;">
+    I build modern websites and Discord bots.<br><br>
+    • <strong>Normal websites or bots:</strong> Free<br>
+    • <strong>Advanced websites or bots:</strong> <strong>1,000 Robux</strong><br><br>
+    Advanced projects include more features, better design, and full customization.
+  </p>
+</div>
+
+<!-- TECH STACK -->
+<div class="section">
+  <h2>Tech Stack</h2>
+  <div class="tech">
+
+    <div class="tech-card">
+      <img src="https://cdn.simpleicons.org/nodedotjs/339933">
+      <h4>Node.js</h4>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>What I Do</h2>
-    <p style="color: var(--muted); max-width: 700px;">
-      I build modern websites and powerful Discord bots with clean UI, solid performance,
-      and scalable code.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>Tech Stack</h2>
-    <div class="tech">
-      <div class="tech-card"><img src="https://cdn.simpleicons.org/nodedotjs"><h4>Node.js</h4></div>
-      <div class="tech-card"><img src="https://cdn.simpleicons.org/python"><h4>Python</h4></div>
-      <div class="tech-card"><img src="https://cdn.simpleicons.org/html5"><h4>HTML</h4></div>
-      <div class="tech-card"><img src="https://cdn.simpleicons.org/css3"><h4>CSS</h4></div>
-      <div class="tech-card"><img src="https://cdn.simpleicons.org/lua"><h4>Lua</h4></div>
+    <div class="tech-card">
+      <img src="https://cdn.simpleicons.org/python/3776AB">
+      <h4>Python</h4>
     </div>
-  </div>
 
-  <div class="footer">© 2025 • Built by 24k</div>
+    <div class="tech-card">
+      <img src="https://cdn.simpleicons.org/html5/E34F26">
+      <h4>HTML</h4>
+    </div>
+
+    <div class="tech-card">
+      <img src="https://cdn.simpleicons.org/css3/1572B6">
+      <h4>CSS</h4>
+    </div>
+
+    <div class="tech-card">
+      <img src="https://cdn.simpleicons.org/lua/000080">
+      <h4>Lua</h4>
+    </div>
+
+  </div>
+</div>
+
+<!-- DISCORD BOTS -->
+<div class="section">
+  <h2>Discord Bots I Mostly Build</h2>
+  <div class="tech">
+
+    <div class="tech-card">
+      <h4>Moderation Bots</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        AutoMod, anti-spam, punishments, logging
+      </p>
+    </div>
+
+    <div class="tech-card">
+      <h4>Utility Bots</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Helpful commands, automation tools
+      </p>
+    </div>
+
+    <div class="tech-card">
+      <h4>Management Bots</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Staff systems, applications, promotions
+      </p>
+    </div>
+
+    <div class="tech-card">
+      <h4>Ticket Bots</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Support tickets, panels, logs
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">© 2025 • Built by 24k</div>
 
 </div>
 
 <script>
-// Typing Effect
+// Typing effect
 const texts = [
   "Web Developer",
   "Discord Bot Developer",
-  "Node.js • Python • Lua",
-  "Clean. Fast. Modern."
+  "Free & Advanced Projects",
+  "Clean. Fast. Reliable."
 ];
 
-let i = 0, j = 0, current = "", deleting = false;
-const typingEl = document.getElementById("typing");
+let i = 0, j = 0, del = false;
+const el = document.getElementById("typing");
 
-function typeLoop() {
-  if (!deleting && j <= texts[i].length) {
-    current = texts[i].slice(0, j++);
-  } else if (deleting && j >= 0) {
-    current = texts[i].slice(0, j--);
-  }
-
-  typingEl.textContent = current;
-
-  if (j === texts[i].length + 1) deleting = true;
-  if (deleting && j === 0) {
-    deleting = false;
-    i = (i + 1) % texts.length;
-  }
-
-  setTimeout(typeLoop, deleting ? 50 : 90);
+function loop() {
+  el.textContent = texts[i].slice(0, j);
+  if (!del && j++ === texts[i].length) del = true;
+  if (del && j-- === 0) { del = false; i = (i + 1) % texts.length; }
+  setTimeout(loop, del ? 50 : 90);
 }
-typeLoop();
+loop();
 
-// Theme Toggle
-const toggle = document.getElementById("themeToggle");
+// Theme toggle
 const root = document.documentElement;
-
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) root.setAttribute("data-theme", savedTheme);
+const toggle = document.getElementById("themeToggle");
+const saved = localStorage.getItem("theme");
+if (saved) root.setAttribute("data-theme", saved);
 
 toggle.onclick = () => {
-  const theme = root.getAttribute("data-theme") === "light" ? "" : "light";
-  root.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
+  const t = root.getAttribute("data-theme") === "light" ? "" : "light";
+  root.setAttribute("data-theme", t);
+  localStorage.setItem("theme", t);
 };
 </script>
 
