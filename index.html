@@ -125,6 +125,7 @@ body {
 
 .counter h3 {
   font-size: 2.2rem;
+  transition: 0.3s;
 }
 
 .counter p {
@@ -174,6 +175,17 @@ body {
   color: var(--muted);
   font-size: .9rem;
 }
+
+/* Smooth fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 
@@ -184,7 +196,7 @@ body {
 <div class="container">
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero fade-in">
   <h1>24k</h1>
   <div class="typing" id="typing"></div>
 
@@ -215,7 +227,7 @@ body {
 </div>
 
 <!-- ABOUT -->
-<div class="section">
+<div class="section fade-in">
   <h2>About Me</h2>
   <p style="color:var(--muted);max-width:760px;">
     I’m <strong>24k</strong>, a management-focused developer with real experience
@@ -229,11 +241,11 @@ body {
 </div>
 
 <!-- EXPERIENCE -->
-<div class="section">
+<div class="section fade-in">
   <h2>Experience</h2>
   <div class="tech">
 
-    <div class="card">
+    <div class="card fade-in">
       <h4>Experience Staff Member & Developer</h4>
       <p style="color:var(--muted);font-size:.9rem;">
         500,000+ Members<br>
@@ -242,7 +254,7 @@ body {
       </p>
     </div>
 
-    <div class="card">
+    <div class="card fade-in">
       <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
       <h4>Ronix Studios Staff Member</h4>
       <p style="color:var(--muted);font-size:.9rem;">
@@ -254,7 +266,7 @@ body {
       </a>
     </div>
 
-    <div class="card">
+    <div class="card fade-in">
       <h4>Development</h4>
       <p style="color:var(--muted);font-size:.9rem;">
         Clean websites, Discord bots,
@@ -265,19 +277,18 @@ body {
   </div>
 </div>
 
-<div class="footer">© 2025 • Built by 24k</div>
+<div class="footer fade-in">© 2025 • Built by 24k</div>
 
 </div>
 
 <script>
-// Typing effect
+// Typing effect - smooth and clean
 const typingTexts = [
   "Experience Staff Member & Developer",
   "Discord Bot Developer",
   "Web Developer",
   "Trusted by Large Servers"
 ];
-
 let ti = 0, tj = 0, typingDel = false;
 const typingEl = document.getElementById("typing");
 
@@ -301,22 +312,50 @@ toggle.onclick = () => {
   localStorage.setItem("theme", t);
 };
 
-// Animated Counters
+// Animated Counters when in viewport
 const counters = document.querySelectorAll('.count');
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText.replace(/,/g,'');
-    const increment = target / 200; // speed
-    if(count < target) {
-      counter.innerText = Math.ceil(count + increment).toLocaleString();
-      requestAnimationFrame(updateCount);
+
+function animateCounter(counter) {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+  const step = Math.ceil(target / 200);
+  const update = () => {
+    count += step;
+    if(count < target){
+      counter.innerText = count.toLocaleString();
+      requestAnimationFrame(update);
     } else {
       counter.innerText = target.toLocaleString();
     }
-  };
-  updateCount();
-});
+  }
+  update();
+}
+
+// Check if counters are in viewport
+function handleCounters() {
+  counters.forEach(counter => {
+    const rect = counter.getBoundingClientRect();
+    if(rect.top < window.innerHeight && !counter.classList.contains('counted')){
+      counter.classList.add('counted');
+      animateCounter(counter);
+    }
+  });
+}
+window.addEventListener('scroll', handleCounters);
+window.addEventListener('load', handleCounters);
+
+// Fade-in animation
+const faders = document.querySelectorAll('.fade-in');
+function fadeInOnScroll() {
+  faders.forEach(fader => {
+    const rect = fader.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50){
+      fader.classList.add('show');
+    }
+  });
+}
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('load', fadeInOnScroll);
 </script>
 
 </body>
