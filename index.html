@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>24k | Developer</title>
+<title>24k | Experience Staff Member & Developer</title>
+
+<!-- Icon -->
+<link rel="icon" href="https://cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png?size=512">
 
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- SEO / Discord Embed -->
-<meta name="description" content="24k – Web & Discord Bot Developer">
-<meta property="og:title" content="24k | Developer">
-<meta property="og:description" content="Modern websites & Discord bots">
-<meta property="og:url" content="https://2k937.github.io">
+<!-- SEO / Embed -->
+<meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
+<meta property="og:title" content="24k | Experience Staff Member & Developer">
+<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
+<meta property="og:image" content="https://cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png?size=512">
 <meta name="theme-color" content="#5865F2">
 
 <style>
@@ -23,6 +26,7 @@
   --border: rgba(255,255,255,0.12);
   --text: #e9ecf1;
   --muted: #9aa4b2;
+  --glow: rgba(88,101,242,.35);
 }
 
 [data-theme="light"] {
@@ -32,6 +36,7 @@
   --border: rgba(0,0,0,0.12);
   --text: #0b0f14;
   --muted: #555;
+  --glow: rgba(88,101,242,.25);
 }
 
 * {
@@ -45,7 +50,7 @@ body {
   background: radial-gradient(circle at top, var(--bg-alt), var(--bg));
   color: var(--text);
   min-height: 100vh;
-  transition: background .4s ease, color .4s ease;
+  transition: .4s ease;
 }
 
 .container {
@@ -63,7 +68,6 @@ body {
   border-radius: 12px;
   padding: 10px 14px;
   cursor: pointer;
-  backdrop-filter: blur(10px);
 }
 
 .hero {
@@ -71,15 +75,15 @@ body {
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 700;
 }
 
 .typing {
-  margin-top: 15px;
+  margin-top: 14px;
   font-size: 1.1rem;
   color: var(--muted);
-  min-height: 24px;
+  min-height: 26px;
 }
 
 .buttons {
@@ -92,7 +96,7 @@ body {
 
 .btn {
   padding: 14px 22px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
@@ -102,45 +106,69 @@ body {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--glow);
+}
+
+.counter {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.counter div {
+  text-align: center;
+}
+
+.counter h3 {
+  font-size: 2.2rem;
+}
+
+.counter p {
+  color: var(--muted);
+  font-size: .9rem;
 }
 
 .section {
-  margin-top: 100px;
+  margin-top: 110px;
 }
 
 .section h2 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   margin-bottom: 25px;
 }
 
 .tech {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
 }
 
-.tech-card {
+.card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 25px;
+  border-radius: 20px;
+  padding: 28px;
   text-align: center;
-  transition: .3s ease;
+  transition: .35s ease;
 }
 
-.tech-card:hover {
-  transform: translateY(-6px);
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 0 1px var(--glow), 0 25px 60px var(--glow);
 }
 
-.tech-card img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 15px;
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+  border-radius: 14px;
 }
 
 .footer {
-  margin-top: 120px;
+  margin-top: 140px;
   text-align: center;
   color: var(--muted);
   font-size: .9rem;
@@ -160,89 +188,76 @@ body {
   <div class="typing" id="typing"></div>
 
   <div class="buttons">
-    <a class="btn" href="https://discord.com/users/@me" target="_blank">
+    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">
       Add me on Discord (@24k_onlyy)
     </a>
     <a class="btn" href="https://github.com/2k937" target="_blank">
       GitHub
     </a>
   </div>
-</div>
 
-<!-- SERVICES -->
-<div class="section">
-  <h2>What I Do</h2>
-  <p style="color:var(--muted);max-width:720px;">
-    I build modern websites and Discord bots.<br><br>
-    • <strong>Normal websites or bots:</strong> Free<br>
-    • <strong>Advanced websites or bots:</strong> <strong>1,000 Robux</strong><br><br>
-    Advanced projects include more features, better design, and full customization.
-  </p>
-</div>
-
-<!-- TECH STACK -->
-<div class="section">
-  <h2>Tech Stack</h2>
-  <div class="tech">
-
-    <div class="tech-card">
-      <img src="https://cdn.simpleicons.org/nodedotjs/339933">
-      <h4>Node.js</h4>
+  <!-- TRUST COUNTER -->
+  <div class="counter">
+    <div>
+      <h3>500k+</h3>
+      <p>Members Managed</p>
     </div>
-
-    <div class="tech-card">
-      <img src="https://cdn.simpleicons.org/python/3776AB">
-      <h4>Python</h4>
+    <div>
+      <h3>10+</h3>
+      <p>Servers Trusted Me</p>
     </div>
-
-    <div class="tech-card">
-      <img src="https://cdn.simpleicons.org/html5/E34F26">
-      <h4>HTML</h4>
+    <div>
+      <h3>100%</h3>
+      <p>Reliable & Active</p>
     </div>
-
-    <div class="tech-card">
-      <img src="https://cdn.simpleicons.org/css3/1572B6">
-      <h4>CSS</h4>
-    </div>
-
-    <div class="tech-card">
-      <img src="https://cdn.simpleicons.org/lua/000080">
-      <h4>Lua</h4>
-    </div>
-
   </div>
 </div>
 
-<!-- DISCORD BOTS -->
+<!-- ABOUT -->
 <div class="section">
-  <h2>Discord Bots I Mostly Build</h2>
+  <h2>About Me</h2>
+  <p style="color:var(--muted);max-width:760px;">
+    I’m <strong>24k</strong>, a management-focused developer with real experience
+    running and moderating large Discord communities.
+    I do <strong>web development</strong> and <strong>Discord bot development</strong>,
+    but my main strength is <strong>staff management, systems, and automation</strong>.
+    <br><br>
+    I’ve worked in a <strong>500,000+ member server</strong>, handling moderation,
+    staff tools, logging systems, and internal management bots.
+  </p>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <h2>Experience</h2>
   <div class="tech">
 
-    <div class="tech-card">
-      <h4>Moderation Bots</h4>
+    <div class="card">
+      <h4>Experience Staff Member & Developer</h4>
       <p style="color:var(--muted);font-size:.9rem;">
-        AutoMod, anti-spam, punishments, logging
+        500,000+ Members<br>
+        Moderation • Management • Automation<br>
+        Trusted with high-responsibility roles
       </p>
     </div>
 
-    <div class="tech-card">
-      <h4>Utility Bots</h4>
+    <div class="card">
+      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
+      <h4>Ronix Studios Staff Member</h4>
       <p style="color:var(--muted);font-size:.9rem;">
-        Helpful commands, automation tools
+        500,000+ Members<br>
+        Moderation • Staff systems • Automation
       </p>
+      <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
+        View Server
+      </a>
     </div>
 
-    <div class="tech-card">
-      <h4>Management Bots</h4>
+    <div class="card">
+      <h4>Development</h4>
       <p style="color:var(--muted);font-size:.9rem;">
-        Staff systems, applications, promotions
-      </p>
-    </div>
-
-    <div class="tech-card">
-      <h4>Ticket Bots</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        Support tickets, panels, logs
+        Clean websites, Discord bots,
+        automation tools, and dashboards
       </p>
     </div>
 
@@ -254,12 +269,12 @@ body {
 </div>
 
 <script>
-// Typing effect
+// Typing text
 const texts = [
-  "Web Developer",
+  "Staff Manager",
   "Discord Bot Developer",
-  "Free & Advanced Projects",
-  "Clean. Fast. Reliable."
+  "Web Developer",
+  "Trusted by Large Servers"
 ];
 
 let i = 0, j = 0, del = false;
@@ -267,7 +282,7 @@ const el = document.getElementById("typing");
 
 function loop() {
   el.textContent = texts[i].slice(0, j);
-  if (!del && j++ === texts[i].length) del = true;
+  if (!del && j++ === texts[i].length + 15) del = true;
   if (del && j-- === 0) { del = false; i = (i + 1) % texts.length; }
   setTimeout(loop, del ? 50 : 90);
 }
