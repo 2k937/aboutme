@@ -8,211 +8,183 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
-<meta property="og:title" content="24k | Experience Staff Member & Developer">
-<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
 <meta name="theme-color" content="#5865F2">
 
 <style>
-:root {
-  --bg: #0b0f14;
-  --bg-alt: #111827;
-  --card: rgba(255,255,255,0.08);
-  --border: rgba(255,255,255,0.12);
-  --text: #e9ecf1;
-  --muted: #9aa4b2;
-  --glow: rgba(88,101,242,.35);
+:root{
+  --bg:#0b0f14;
+  --bg-alt:#111827;
+  --card:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12);
+  --text:#e9ecf1;
+  --muted:#9aa4b2;
+  --glow:rgba(88,101,242,.35);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter, sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+
+body{
+  background:radial-gradient(circle at top,var(--bg-alt),var(--bg));
+  color:var(--text);
+  min-height:100vh;
 }
 
-body {
-  background: radial-gradient(circle at top, var(--bg-alt), var(--bg));
-  color: var(--text);
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
 }
 
 .theme-toggle,
-.music-toggle {
-  position: fixed;
-  top: 20px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 10px 14px;
-  cursor: pointer;
+.music-toggle{
+  position:fixed;
+  top:20px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px 14px;
+  cursor:pointer;
 }
 
-.theme-toggle { right: 20px; }
-.music-toggle { right: 80px; }
+.theme-toggle{right:20px;}
+.music-toggle{left:20px;}
 
-.hero {
-  text-align: center;
+.hero{text-align:center;}
+.hero h1{font-size:clamp(2.6rem,5vw,4rem);margin-bottom:10px;}
+
+.buttons{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-.hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  font-weight: 700;
+.btn{
+  padding:14px 22px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
 }
 
-.typing {
-  margin-top: 14px;
-  font-size: 1.2rem;
-  color: var(--muted);
-  min-height: 28px;
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px var(--glow);
 }
 
-.typing::after {
-  content: "|";
-  margin-left: 6px;
-  animation: blink 1s infinite;
+.counter{
+  margin-top:50px;
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  flex-wrap:wrap;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+.counter div{
+  background:var(--card);
+  padding:20px 25px;
+  border-radius:16px;
+  border:1px solid var(--border);
 }
 
-.buttons {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.counter h3{font-size:2.2rem;}
+.counter p{color:var(--muted);font-size:.9rem;}
+
+.section{margin-top:90px;}
+.section h2{font-size:2.1rem;margin-bottom:25px;}
+
+.tech{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
 }
 
-.btn {
-  padding: 14px 22px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  text-align:center;
+  transition:.35s;
 }
 
-.counter {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px var(--glow);
 }
 
-.section {
-  margin-top: 90px;
+.card img{
+  width:60px;
+  height:60px;
+  margin-bottom:18px;
+  border-radius:14px;
 }
 
-.tech {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+.footer{
+  margin-top:140px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.9rem;
 }
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
-  text-align: center;
-}
+.fade-in{opacity:0;transform:translateY(20px);transition:.8s;}
+.fade-in.show{opacity:1;transform:none;}
 
-.card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 18px;
-  border-radius: 14px;
-}
-
-.footer {
-  margin-top: 140px;
-  text-align: center;
-  color: var(--muted);
-  font-size: .9rem;
+#ytPlayer{
+  position:absolute;
+  width:0;
+  height:0;
+  border:0;
+  visibility:hidden;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Hidden YouTube Music -->
-<div style="position:absolute;width:0;height:0;overflow:hidden;">
-  <iframe id="ytPlayer" src="" frameborder="0" allow="autoplay"></iframe>
-</div>
-
+<button class="theme-toggle" id="themeToggle">🌙</button>
 <button class="music-toggle" id="musicToggle">🔇</button>
+
+<!-- hidden yt player -->
+<iframe id="ytPlayer"></iframe>
 
 <div class="container">
 
-<!-- HERO -->
-<div class="hero">
+<div class="hero fade-in">
   <h1>24k</h1>
-  <div class="typing" id="typing"></div>
-
   <div class="buttons">
-    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord (@24k_onlyy)</a>
+    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord</a>
     <a class="btn" href="https://github.com/2k937" target="_blank">GitHub</a>
   </div>
 
   <div class="counter">
-    <div><h3>500,000+</h3><p>Members Managed</p></div>
-    <div><h3>10+</h3><p>Servers Trusted Me</p></div>
-    <div><h3>100%</h3><p>Reliable & Active</p></div>
+    <div><h3 class="count" data-target="500000">0</h3><p>Members Managed</p></div>
+    <div><h3 class="count" data-target="10">0</h3><p>Servers Trusted Me</p></div>
+    <div><h3 class="count" data-target="100">0</h3><p>Reliable & Active</p></div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<div class="section">
-  <h2>About Me</h2>
-  <p style="color:var(--muted);max-width:760px;">
-    I’m <strong>24k</strong>, a management-focused developer with extensive experience
-    running and moderating large Discord communities.
-  </p>
-</div>
-
-<!-- EXPERIENCE -->
-<div class="section">
+<div class="section fade-in">
   <h2>Experience</h2>
   <div class="tech">
 
     <div class="card">
-      <h4>Experience Staff Member & Developer</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        500,000+ Members<br>
-        Moderation • Management • Automation
-      </p>
-    </div>
-
-    <!-- Ronix Studios -->
-    <div class="card">
-      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
       <h4>Ronix Studios Staff Member</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        Moderation • Staff Systems • Automation
-      </p>
-      <a class="btn" style="margin-top:12px" href="https://discord.gg/ronixstudios" target="_blank">
+      <p style="color:var(--muted);font-size:.9rem;">Moderation • Automation</p>
+      <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
         View Server
       </a>
     </div>
 
-    <!-- XynProxy -->
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Sites_2020_Logo.svg/512px-Google_Sites_2020_Logo.svg.png">
-      <h4>XynProxy</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        Unblocked games I made for schools
-      </p>
-      <a class="btn" style="margin-top:12px" href="https://sites.google.com/view/xynproxy" target="_blank">
+      <img src="https://www.gstatic.com/images/branding/product/2x/sites_96dp.png">
+      <h4>XynProxy Games</h4>
+      <p style="color:var(--muted);font-size:.9rem;">Unblocked games for schools</p>
+      <a class="btn" style="margin-top:12px;display:inline-block" href="https://sites.google.com/view/xynproxy" target="_blank">
         View Website
       </a>
     </div>
@@ -225,26 +197,35 @@ body {
 </div>
 
 <script>
-/* Typing Effect */
-const texts = [
-  "Experienced Staff Member & Developer",
-  "Discord Bot Developer",
-  "Web Developer",
-  "Trusted by Large Servers"
-];
-const typing = document.getElementById("typing");
-let i = 0, j = 0, del = false;
+// theme
+const root=document.documentElement;
+const toggle=document.getElementById("themeToggle");
+toggle.onclick=()=>root.toggleAttribute("data-theme");
 
-function typeLoop() {
-  const t = texts[i];
-  typing.textContent = t.slice(0, j);
-  if (!del && j++ === t.length) del = true;
-  if (del && j-- === 0) { del = false; i = (i + 1) % texts.length; }
-  setTimeout(typeLoop, del ? 60 : 110);
-}
-typeLoop();
+// counters
+document.querySelectorAll(".count").forEach(c=>{
+  let ran=false;
+  window.addEventListener("scroll",()=>{
+    if(ran) return;
+    if(c.getBoundingClientRect().top<innerHeight){
+      ran=true;
+      const t=+c.dataset.target;
+      let n=0;
+      const i=setInterval(()=>{
+        n+=t/120;
+        if(n>=t){c.textContent=t.toLocaleString();clearInterval(i);}
+        else c.textContent=Math.floor(n).toLocaleString();
+      },16);
+    }
+  });
+});
 
-/* Music Toggle */
+// fade in
+document.querySelectorAll(".fade-in").forEach(e=>{
+  new IntersectionObserver(x=>x[0].isIntersecting&&e.classList.add("show")).observe(e);
+});
+
+// 🎵 MUSIC CODE (yours)
 const yt = document.getElementById("ytPlayer");
 const btn = document.getElementById("musicToggle");
 const videoId = "cX_cEXDIrvk";
