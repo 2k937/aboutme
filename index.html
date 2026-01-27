@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>24k | Experience Staff Member & Developer</title>
 
-<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
-<meta property="og:title" content="24k | Experience Staff Member & Developer">
-<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
 <meta name="theme-color" content="#5865F2">
 
 <style>
@@ -24,28 +20,17 @@
   --glow: rgba(88,101,242,.35);
 }
 
-[data-theme="light"] {
-  --bg: #f5f7fb;
-  --bg-alt: #ffffff;
-  --card: rgba(0,0,0,0.05);
-  --border: rgba(0,0,0,0.12);
-  --text: #0b0f14;
-  --muted: #555;
-  --glow: rgba(88,101,242,.25);
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 body {
   background: radial-gradient(circle at top, var(--bg-alt), var(--bg));
   color: var(--text);
   min-height: 100vh;
-  transition: .4s ease;
 }
 
 .container {
@@ -54,302 +39,126 @@ body {
   padding: 80px 20px;
 }
 
-.theme-toggle {
+.theme-toggle,
+.music-toggle {
   position: fixed;
   top: 20px;
-  right: 20px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px 14px;
   cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: .3s ease;
 }
+
+.theme-toggle { right: 20px; }
+.music-toggle { right: 80px; }
 
 .hero {
   text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-size: 3.5rem;
 }
 
 .typing {
   margin-top: 14px;
-  font-size: 1.2rem;
   color: var(--muted);
-  min-height: 28px;
-  font-weight: 500;
+  min-height: 26px;
 }
 
-.buttons {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.typing::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 1s infinite;
 }
 
-.btn {
-  padding: 14px 22px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  transition: .3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px var(--glow);
-}
-
-.counter {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.counter div {
-  text-align: center;
-}
-
-.counter h3 {
-  font-size: 2.2rem;
-  font-weight: 700;
-}
-
-.counter p {
-  color: var(--muted);
-  font-size: .9rem;
-}
-
-.section {
-  margin-top: 90px;
-}
-
-.section h2 {
-  font-size: 2.1rem;
-  margin-bottom: 25px;
-}
-
-.tech {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
-  text-align: center;
-  transition: .35s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 0 1px var(--glow), 0 25px 60px var(--glow);
-}
-
-.card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 18px;
-  border-radius: 14px;
-}
-
-.footer {
-  margin-top: 140px;
-  text-align: center;
-  color: var(--muted);
-  font-size: .9rem;
-}
-
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes blink {
+  50% { opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<button class="theme-toggle" id="themeToggle">🌙</button>
+<!-- 🔊 Hidden YouTube Audio -->
+<div style="position:absolute; width:0; height:0; overflow:hidden;">
+  <iframe
+    id="ytPlayer"
+    src=""
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
+</div>
+
+<button class="music-toggle" id="musicToggle">🔇</button>
 
 <div class="container">
-
-<!-- HERO -->
-<div class="hero fade-in">
-  <h1>24k</h1>
-  <div class="typing" id="typing"></div>
-
-  <div class="buttons">
-    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">
-      Add me on Discord (@24k_onlyy)
-    </a>
-    <a class="btn" href="https://github.com/2k937" target="_blank">
-      GitHub
-    </a>
+  <div class="hero">
+    <h1>24k</h1>
+    <div class="typing" id="typing"></div>
   </div>
-
-  <!-- TRUST COUNTER -->
-  <div class="counter">
-    <div>
-      <h3 class="count" data-target="500000">0</h3>
-      <p>Members Managed</p>
-    </div>
-    <div>
-      <h3 class="count" data-target="10">0</h3>
-      <p>Servers Trusted Me</p>
-    </div>
-    <div>
-      <h3 class="count" data-target="100">0</h3>
-      <p>Reliable & Active</p>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<div class="section fade-in">
-  <h2>About Me</h2>
-  <p style="color:var(--muted);max-width:760px;">
-    I’m <strong>24k</strong>, a management-focused developer with extensive experience
-    running and moderating large Discord communities. I do <strong>web development</strong> and
-    <strong>Discord bot development</strong>, but my main expertise is in
-    <strong>staff management, automation, and server operations</strong>.<br><br>
-    I’ve worked in a <strong>500,000+ member server</strong>, handling moderation,
-    staff tools, logging systems, custom bots, applications, and internal management dashboards.<br><br>
-    I focus on creating efficient systems for large communities, building scalable bots,
-    and ensuring smooth communication between staff teams and members.
-  </p>
-</div>
-
-<!-- EXPERIENCE -->
-<div class="section fade-in">
-  <h2>Experience</h2>
-  <div class="tech">
-
-    <div class="card fade-in">
-      <h4>Experience Staff Member & Developer</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        500,000+ Members<br>
-        Moderation • Management • Automation<br>
-        Trusted with high-responsibility roles
-      </p>
-    </div>
-
-    <div class="card fade-in">
-      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
-      <h4>Ronix Studios Staff Member</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        500,000+ Members<br>
-        Moderation • Staff systems • Automation
-      </p>
-      <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
-        View Server
-      </a>
-    </div>
-
-    <div class="card fade-in">
-      <h4>Development</h4>
-      <p style="color:var(--muted);font-size:.9rem;">
-        Clean websites, Discord bots,
-        automation tools, dashboards, and management systems
-      </p>
-    </div>
-
-  </div>
-</div>
-
-<div class="footer fade-in">© 2025 • Built by 24k</div>
-
 </div>
 
 <script>
-// Typing effect - clean
-const typingTexts = [
-  "Experience Staff Member & Developer",
+/* ===== Typing Effect ===== */
+const texts = [
+  "Experienced Staff Member & Developer",
   "Discord Bot Developer",
   "Web Developer",
   "Trusted by Large Servers"
 ];
-let ti = 0, tj = 0, typingDel = false;
-const typingEl = document.getElementById("typing");
 
-function typingLoop() {
-  typingEl.textContent = typingTexts[ti].slice(0, tj);
-  if(!typingDel && tj++ === typingTexts[ti].length) typingDel = true;
-  if(typingDel && tj-- === 0) { typingDel = false; ti = (ti + 1) % typingTexts.length; }
-  setTimeout(typingLoop, typingDel ? 60 : 120);
-}
-typingLoop();
+const typing = document.getElementById("typing");
+let i = 0, j = 0, del = false;
 
-// Theme toggle
-const root = document.documentElement;
-const toggle = document.getElementById("themeToggle");
-const saved = localStorage.getItem("theme");
-if(saved) root.setAttribute("data-theme", saved);
-toggle.onclick = () => {
-  const t = root.getAttribute("data-theme") === "light" ? "" : "light";
-  root.setAttribute("data-theme", t);
-  localStorage.setItem("theme", t);
-};
+function typeLoop() {
+  const text = texts[i];
+  typing.textContent = text.slice(0, j);
 
-// Animated counters - smooth when in viewport
-const counters = document.querySelectorAll('.count');
-function animateCounter(counter) {
-  const target = +counter.getAttribute('data-target');
-  let count = 0;
-  const step = Math.ceil(target / 200);
-  const update = () => {
-    count += step;
-    if(count < target){
-      counter.innerText = count.toLocaleString();
-      requestAnimationFrame(update);
-    } else {
-      counter.innerText = target.toLocaleString();
+  if (!del) {
+    j++;
+    if (j > text.length) {
+      del = true;
+      setTimeout(() => {}, 1500);
+    }
+  } else {
+    j--;
+    if (j === 0) {
+      del = false;
+      i = (i + 1) % texts.length;
     }
   }
-  update();
+  setTimeout(typeLoop, del ? 60 : 110);
 }
-function handleCounters(){
-  counters.forEach(counter => {
-    const rect = counter.getBoundingClientRect();
-    if(rect.top < window.innerHeight && !counter.classList.contains('counted')){
-      counter.classList.add('counted');
-      animateCounter(counter);
-    }
-  });
-}
-window.addEventListener('scroll', handleCounters);
-window.addEventListener('load', handleCounters);
+typeLoop();
 
-// Fade-in animation
-const faders = document.querySelectorAll('.fade-in');
-function fadeInOnScroll() {
-  faders.forEach(fader => {
-    const rect = fader.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 50){
-      fader.classList.add('show');
-    }
-  });
-}
-window.addEventListener('scroll', fadeInOnScroll);
-window.addEventListener('load', fadeInOnScroll);
+/* ===== YouTube Music Toggle ===== */
+const yt = document.getElementById("ytPlayer");
+const btn = document.getElementById("musicToggle");
+
+let playing = false;
+const videoId = "cX_cEXDIrvk";
+
+btn.onclick = () => {
+  playing = !playing;
+
+  if (playing) {
+    yt.src =
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+    btn.textContent = "🔊";
+  } else {
+    yt.src = "";
+    btn.textContent = "🔇";
+  }
+};
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
