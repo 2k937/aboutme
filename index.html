@@ -5,20 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>24k | Experience Staff Member & Developer</title>
 
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
+<meta property="og:title" content="24k | Experience Staff Member & Developer">
+<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
 <meta name="theme-color" content="#5865F2">
 
 <style>
-:root{
+:root {
   --bg:#0b0f14;
   --bg-alt:#111827;
-  --card:rgba(255,255,255,.08);
-  --border:rgba(255,255,255,.12);
+  --card:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.12);
   --text:#e9ecf1;
   --muted:#9aa4b2;
   --glow:rgba(88,101,242,.35);
+}
+
+[data-theme="light"] {
+  --bg:#f5f7fb;
+  --bg-alt:#fff;
+  --card:rgba(0,0,0,0.05);
+  --border:rgba(0,0,0,0.12);
+  --text:#0b0f14;
+  --muted:#555;
+  --glow:rgba(88,101,242,.25);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
@@ -27,13 +40,10 @@ body{
   background:radial-gradient(circle at top,var(--bg-alt),var(--bg));
   color:var(--text);
   min-height:100vh;
+  transition:.4s;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 20px;
-}
+.container{max-width:1100px;margin:auto;padding:80px 20px;}
 
 .theme-toggle,
 .music-toggle{
@@ -50,10 +60,18 @@ body{
 .music-toggle{left:20px;}
 
 .hero{text-align:center;}
-.hero h1{font-size:clamp(2.6rem,5vw,4rem);margin-bottom:10px;}
+.hero h1{font-size:clamp(2.6rem,5vw,4rem);margin-bottom:15px;}
+
+.typing{
+  margin-top:14px;
+  font-size:1.2rem;
+  color:var(--muted);
+  min-height:28px;
+  font-weight:500;
+}
 
 .buttons{
-  margin-top:15px;
+  margin-top:25px;
   display:flex;
   justify-content:center;
   gap:15px;
@@ -77,18 +95,11 @@ body{
 }
 
 .counter{
-  margin-top:50px;
+  margin-top:40px;
   display:flex;
   justify-content:center;
-  gap:50px;
+  gap:40px;
   flex-wrap:wrap;
-}
-
-.counter div{
-  background:var(--card);
-  padding:20px 25px;
-  border-radius:16px;
-  border:1px solid var(--border);
 }
 
 .counter h3{font-size:2.2rem;}
@@ -131,9 +142,11 @@ body{
   font-size:.9rem;
 }
 
+/* fade */
 .fade-in{opacity:0;transform:translateY(20px);transition:.8s;}
 .fade-in.show{opacity:1;transform:none;}
 
+/* hidden youtube */
 #ytPlayer{
   position:absolute;
   width:0;
@@ -149,15 +162,16 @@ body{
 <button class="theme-toggle" id="themeToggle">🌙</button>
 <button class="music-toggle" id="musicToggle">🔇</button>
 
-<!-- hidden yt player -->
 <iframe id="ytPlayer"></iframe>
 
 <div class="container">
 
 <div class="hero fade-in">
   <h1>24k</h1>
+  <div class="typing" id="typing"></div>
+
   <div class="buttons">
-    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord</a>
+    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord (@24k_onlyy)</a>
     <a class="btn" href="https://github.com/2k937" target="_blank">GitHub</a>
   </div>
 
@@ -168,47 +182,99 @@ body{
   </div>
 </div>
 
+<!-- ABOUT -->
+<div class="section fade-in">
+  <h2>About Me</h2>
+  <p style="color:var(--muted);max-width:760px;">
+    I’m <strong>24k</strong>, a management-focused developer with extensive experience
+    running and moderating large Discord communities. I specialize in staff management,
+    automation, web development, and Discord bot systems.
+  </p>
+</div>
+
+<!-- EXPERIENCE -->
 <div class="section fade-in">
   <h2>Experience</h2>
   <div class="tech">
 
     <div class="card">
+      <h4>Experience Staff Member & Developer</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        500,000+ Members<br>
+        Moderation • Management • Automation
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
       <h4>Ronix Studios Staff Member</h4>
-      <p style="color:var(--muted);font-size:.9rem;">Moderation • Automation</p>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Moderation • Staff Systems • Automation
+      </p>
       <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
         View Server
       </a>
     </div>
 
     <div class="card">
-      <img src="https://www.gstatic.com/images/branding/product/2x/sites_96dp.png">
-      <h4>XynProxy Games</h4>
-      <p style="color:var(--muted);font-size:.9rem;">Unblocked games for schools</p>
-      <a class="btn" style="margin-top:12px;display:inline-block" href="https://sites.google.com/view/xynproxy" target="_blank">
-        View Website
-      </a>
+      <h4>Development</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Websites, Discord bots, dashboards, automation systems
+      </p>
     </div>
 
   </div>
 </div>
 
-<div class="footer">© 2025 • Built by 24k</div>
+<div class="footer fade-in">© 2025 • Built by 24k</div>
 
 </div>
 
 <script>
-// theme
-const root=document.documentElement;
-const toggle=document.getElementById("themeToggle");
-toggle.onclick=()=>root.toggleAttribute("data-theme");
+// FIXED typing (no flashing full text)
+const texts = [
+  "Experience Staff Member & Developer",
+  "Discord Bot Developer",
+  "Web Developer",
+  "Trusted by Large Servers"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let deleting = false;
+const typingEl = document.getElementById("typing");
+
+function typeLoop(){
+  const current = texts[textIndex];
+  typingEl.textContent = current.slice(0, charIndex);
+
+  if(!deleting && charIndex < current.length){
+    charIndex++;
+  } else if(deleting && charIndex > 0){
+    charIndex--;
+  } else if(!deleting && charIndex === current.length){
+    setTimeout(()=>deleting=true,1000);
+  } else if(deleting && charIndex === 0){
+    deleting=false;
+    textIndex = (textIndex + 1) % texts.length;
+  }
+
+  setTimeout(typeLoop, deleting ? 60 : 100);
+}
+typeLoop();
+
+// theme toggle
+const root = document.documentElement;
+document.getElementById("themeToggle").onclick = () =>
+  root.toggleAttribute("data-theme");
 
 // counters
-document.querySelectorAll(".count").forEach(c=>{
-  let ran=false;
-  window.addEventListener("scroll",()=>{
-    if(ran) return;
-    if(c.getBoundingClientRect().top<innerHeight){
-      ran=true;
+document.querySelectorAll('.count').forEach(c=>{
+  let done=false;
+  window.addEventListener('scroll',()=>{
+    if(done) return;
+    if(c.getBoundingClientRect().top < innerHeight){
+      done=true;
       const t=+c.dataset.target;
       let n=0;
       const i=setInterval(()=>{
@@ -221,11 +287,13 @@ document.querySelectorAll(".count").forEach(c=>{
 });
 
 // fade in
-document.querySelectorAll(".fade-in").forEach(e=>{
-  new IntersectionObserver(x=>x[0].isIntersecting&&e.classList.add("show")).observe(e);
+document.querySelectorAll('.fade-in').forEach(el=>{
+  new IntersectionObserver(e=>{
+    if(e[0].isIntersecting) el.classList.add('show');
+  }).observe(el);
 });
 
-// 🎵 MUSIC CODE (yours)
+// 🎵 MUSIC (your logic)
 const yt = document.getElementById("ytPlayer");
 const btn = document.getElementById("musicToggle");
 const videoId = "cX_cEXDIrvk";
@@ -242,4 +310,5 @@ btn.onclick = () => {
 
 </body>
 </html>
+
 
