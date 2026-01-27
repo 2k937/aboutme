@@ -5,160 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>24k | Experience Staff Member & Developer</title>
 
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
+<meta property="og:title" content="24k | Experience Staff Member & Developer">
+<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
 <meta name="theme-color" content="#5865F2">
 
 <style>
-:root{
-  --bg:#0b0f14;
-  --bg-alt:#111827;
-  --card:rgba(255,255,255,.08);
-  --border:rgba(255,255,255,.12);
-  --text:#e9ecf1;
-  --muted:#9aa4b2;
-  --glow:rgba(88,101,242,.35);
+:root {
+  --bg: #0b0f14;
+  --bg-alt: #111827;
+  --card: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.12);
+  --text: #e9ecf1;
+  --muted: #9aa4b2;
+  --glow: rgba(88,101,242,.35);
 }
 
-[data-theme="light"]{
-  --bg:#f5f7fb;
-  --bg-alt:#fff;
-  --card:rgba(0,0,0,.05);
-  --border:rgba(0,0,0,.12);
-  --text:#0b0f14;
-  --muted:#555;
-  --glow:rgba(88,101,242,.25);
+[data-theme="light"] {
+  --bg: #f5f7fb;
+  --bg-alt: #ffffff;
+  --card: rgba(0,0,0,0.05);
+  --border: rgba(0,0,0,0.12);
+  --text: #0b0f14;
+  --muted: #555;
+  --glow: rgba(88,101,242,.25);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
-
-body{
-  background:radial-gradient(circle at top,var(--bg-alt),var(--bg));
-  color:var(--text);
-  min-height:100vh;
-  transition:.3s;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.container{max-width:1100px;margin:auto;padding:80px 20px;}
-
-.theme-toggle,.music-toggle{
-  position:fixed;
-  top:20px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:10px 14px;
-  cursor:pointer;
+body {
+  background: radial-gradient(circle at top, var(--bg-alt), var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+  transition: .4s ease;
 }
 
-.theme-toggle{right:20px;}
-.music-toggle{left:20px;}
-
-.hero{text-align:center;}
-.hero h1{font-size:clamp(2.6rem,5vw,4rem);}
-
-.typing{
-  margin-top:12px;
-  color:var(--muted);
-  min-height:28px;
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
 }
 
-.buttons{
-  margin-top:20px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+.theme-toggle,
+.music-toggle {
+  position: fixed;
+  top: 20px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
 }
 
-.btn{
-  padding:14px 22px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:var(--card);
-  color:var(--text);
-  text-decoration:none;
-  font-weight:600;
-  transition:.25s;
+.theme-toggle { right: 20px; }
+.music-toggle { left: 20px; }
+
+.hero { text-align: center; }
+
+.hero h1 {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px var(--glow);
+.typing {
+  margin-top: 14px;
+  font-size: 1.2rem;
+  color: var(--muted);
+  min-height: 28px;
+  font-weight: 500;
 }
 
-.counter{
-  margin-top:45px;
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-.counter div{
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:22px 26px;
-  border-radius:16px;
-  min-width:160px;
+.btn {
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s ease;
 }
 
-.counter h3{
-  font-size:2.2rem;
-  font-weight:700;
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--glow);
 }
 
-.counter p{
-  color:var(--muted);
-  font-size:.9rem;
+.counter {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.section{margin-top:90px;}
-.section h2{margin-bottom:25px;}
-
-.tech{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
+.counter div {
+  text-align: center;
 }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:28px;
-  text-align:center;
-  transition:.3s;
+.counter h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 25px 60px var(--glow);
+.counter p {
+  color: var(--muted);
+  font-size: .9rem;
 }
 
-.card img{
-  width:60px;
-  height:60px;
-  margin-bottom:18px;
-  border-radius:14px;
+.section {
+  margin-top: 90px;
 }
 
-.footer{
-  margin-top:140px;
-  text-align:center;
-  color:var(--muted);
-  font-size:.9rem;
+.section h2 {
+  font-size: 2.1rem;
+  margin-bottom: 25px;
 }
 
-.fade-in{opacity:0;transform:translateY(20px);transition:.8s;}
-.fade-in.show{opacity:1;transform:none;}
+.tech {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
 
-#ytPlayer{
-  position:absolute;
-  width:0;
-  height:0;
-  border:0;
-  visibility:hidden;
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  text-align: center;
+  transition: .35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 0 1px var(--glow), 0 25px 60px var(--glow);
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+}
+
+.footer {
+  margin-top: 140px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hidden YouTube player */
+#ytPlayer {
+  width: 0;
+  height: 0;
+  border: 0;
+  visibility: hidden;
 }
 </style>
 </head>
@@ -167,33 +198,90 @@ body{
 
 <button class="music-toggle" id="musicToggle">🔇</button>
 <button class="theme-toggle" id="themeToggle">🌙</button>
-
 <iframe id="ytPlayer" allow="autoplay"></iframe>
 
 <div class="container">
 
+<!-- HERO -->
 <div class="hero fade-in">
   <h1>24k</h1>
   <div class="typing" id="typing"></div>
 
   <div class="buttons">
-    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord</a>
-    <a class="btn" href="https://github.com/2k937" target="_blank">GitHub</a>
+    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">
+      Add me on Discord (@24k_onlyy)
+    </a>
+    <a class="btn" href="https://github.com/2k937" target="_blank">
+      GitHub
+    </a>
   </div>
 
+  <!-- TRUST COUNTER -->
   <div class="counter">
     <div>
-      <h3 class="stat" data-target="500">0</h3>
+      <h3 class="count" data-target="500000">0</h3>
       <p>Members Managed</p>
     </div>
     <div>
-      <h3 class="stat" data-target="100">0</h3>
+      <h3 class="count" data-target="100">0</h3>
       <p>Servers Trusted Me</p>
     </div>
     <div>
-      <h3 class="stat" data-target="500">0</h3>
+      <h3 class="count" data-target="500">0</h3>
       <p>Reliable & Active</p>
     </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section fade-in">
+  <h2>About Me</h2>
+  <p style="color:var(--muted);max-width:760px;">
+    I’m <strong>24k</strong>, a management-focused developer with extensive experience
+    running and moderating large Discord communities. I do <strong>web development</strong> and
+    <strong>Discord bot development</strong>, but my main expertise is in
+    <strong>staff management, automation, and server operations</strong>.<br><br>
+    I’ve worked in a <strong>500,000+ member server</strong>, handling moderation,
+    staff tools, logging systems, custom bots, applications, and internal management dashboards.<br><br>
+    I focus on creating efficient systems for large communities, building scalable bots,
+    and ensuring smooth communication between staff teams and members.
+  </p>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section fade-in">
+  <h2>Experience</h2>
+  <div class="tech">
+
+    <div class="card fade-in">
+      <h4>Experience Staff Member & Developer</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        500,000+ Members<br>
+        Moderation • Management • Automation<br>
+        Trusted with high-responsibility roles
+      </p>
+    </div>
+
+    <div class="card fade-in">
+      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
+      <h4>Ronix Studios Staff Member</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        500,000+ Members<br>
+        Moderation • Staff systems • Automation
+      </p>
+      <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
+        View Server
+      </a>
+    </div>
+
+    <div class="card fade-in">
+      <h4>Development</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Clean websites, Discord bots,
+        automation tools, dashboards, and management systems
+      </p>
+    </div>
+
   </div>
 </div>
 
@@ -202,59 +290,67 @@ body{
 </div>
 
 <script>
-// typing (fixed)
-const texts=[
+// Typing effect (fixed: no peek)
+const typingTexts = [
   "Experience Staff Member & Developer",
   "Discord Bot Developer",
   "Web Developer",
   "Trusted by Large Servers"
 ];
-let ti=0,ci=0,del=false;
-const t=document.getElementById("typing");
+let ti=0,tj=0,del=false;
+const typingEl=document.getElementById("typing");
 
-(function loop(){
-  const cur=texts[ti];
-  t.textContent=cur.slice(0,ci);
-  if(!del&&ci<cur.length)ci++;
-  else if(del&&ci>0)ci--;
-  else if(ci===cur.length){setTimeout(()=>del=true,900);}
-  else{del=false;ti=(ti+1)%texts.length;}
-  setTimeout(loop,del?60:100);
-})();
+function typingLoop(){
+  typingEl.textContent = typingTexts[ti].slice(0,tj);
+  if(!del && tj < typingTexts[ti].length) tj++;
+  else if(!del && tj === typingTexts[ti].length) del=true;
+  else if(del && tj>0) tj--;
+  else { del=false; ti=(ti+1)%typingTexts.length; }
+  setTimeout(typingLoop, del?60:120);
+}
+typingLoop();
 
-// theme toggle (FIXED)
+// Theme toggle
 const root=document.documentElement;
-const themeBtn=document.getElementById("themeToggle");
+const toggle=document.getElementById("themeToggle");
 const saved=localStorage.getItem("theme");
-if(saved)root.setAttribute("data-theme",saved);
+if(saved) root.setAttribute("data-theme",saved);
 
-themeBtn.onclick=()=>{
+toggle.onclick=()=>{
   const isLight=root.getAttribute("data-theme")==="light";
   root.setAttribute("data-theme",isLight?"":"light");
   localStorage.setItem("theme",isLight?"":"light");
-  themeBtn.textContent=isLight?"🌙":"☀️";
+  toggle.textContent=isLight?"🌙":"☀️";
 };
 
-// counters (FIXED + clean)
-document.querySelectorAll(".stat").forEach(el=>{
-  let done=false;
-  window.addEventListener("scroll",()=>{
-    if(done) return;
-    if(el.getBoundingClientRect().top<innerHeight){
-      done=true;
-      let n=0,t=+el.dataset.target;
-      const i=setInterval(()=>{
-        n+=Math.ceil(t/40);
-        if(n>=t){
-          el.textContent=t+(t>=500?"k+":"+");
-          clearInterval(i);
-        }else el.textContent=n;
-      },25);
+// Counter fixed
+const counters=document.querySelectorAll(".count");
+function animateCounter(counter,target){
+  let count=0;
+  const step=Math.ceil(target/100);
+  const interval=setInterval(()=>{
+    count+=step;
+    if(count>=target){
+      counter.textContent=target>=1000?`${(target/1000).toLocaleString()}k+`:
+                          target>=100?`${target}+`:target;
+      clearInterval(interval);
+    }else counter.textContent=count;
+  },20);
+}
+
+function handleCounters(){
+  counters.forEach(counter=>{
+    const rect=counter.getBoundingClientRect();
+    if(rect.top<window.innerHeight && !counter.classList.contains("counted")){
+      counter.classList.add("counted");
+      animateCounter(counter,+counter.getAttribute("data-target"));
     }
   });
-});
+}
+window.addEventListener("scroll",handleCounters);
+window.addEventListener("load",handleCounters);
 
-// music (FIXED)
+// Music toggle
 const yt=document.getElementById("ytPlayer");
 const musicBtn=document.getElementById("musicToggle");
 const videoId="cX_cEXDIrvk";
@@ -262,15 +358,17 @@ let playing=false;
 
 musicBtn.onclick=()=>{
   playing=!playing;
-  yt.src=playing
-    ?`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&mute=0`
-    :"";
+  yt.src=playing?`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`:"";
   musicBtn.textContent=playing?"🔊":"🔇";
 };
 
-// fade
-document.querySelectorAll(".fade-in").forEach(e=>{
-  new IntersectionObserver(x=>x[0].isIntersecting&&e.classList.add("show")).observe(e);
+// Fade-in
+document.querySelectorAll(".fade-in").forEach(el=>{
+  new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) el.classList.add("show");
+    });
+  }).observe(el);
 });
 </script>
 
