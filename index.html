@@ -11,7 +11,6 @@
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- SEO / Embed -->
 <meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
 <meta property="og:title" content="24k | Experience Staff Member & Developer">
 <meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
@@ -77,17 +76,19 @@ body {
 .hero h1 {
   font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .typing {
   margin-top: 14px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--muted);
-  min-height: 26px;
+  min-height: 28px;
+  font-weight: 500;
 }
 
 .buttons {
-  margin-top: 35px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -132,7 +133,7 @@ body {
 }
 
 .section {
-  margin-top: 110px;
+  margin-top: 90px;
 }
 
 .section h2 {
@@ -199,15 +200,15 @@ body {
   <!-- TRUST COUNTER -->
   <div class="counter">
     <div>
-      <h3>500k+</h3>
+      <h3 class="count" data-target="500000">0</h3>
       <p>Members Managed</p>
     </div>
     <div>
-      <h3>10+</h3>
+      <h3 class="count" data-target="10">0</h3>
       <p>Servers Trusted Me</p>
     </div>
     <div>
-      <h3>100%</h3>
+      <h3 class="count" data-target="100">0</h3>
       <p>Reliable & Active</p>
     </div>
   </div>
@@ -269,24 +270,24 @@ body {
 </div>
 
 <script>
-// Typing text
-const texts = [
-  "Staff Manager",
+// Typing effect
+const typingTexts = [
+  "Experience Staff Member & Developer",
   "Discord Bot Developer",
   "Web Developer",
   "Trusted by Large Servers"
 ];
 
-let i = 0, j = 0, del = false;
-const el = document.getElementById("typing");
+let ti = 0, tj = 0, typingDel = false;
+const typingEl = document.getElementById("typing");
 
-function loop() {
-  el.textContent = texts[i].slice(0, j);
-  if (!del && j++ === texts[i].length + 15) del = true;
-  if (del && j-- === 0) { del = false; i = (i + 1) % texts.length; }
-  setTimeout(loop, del ? 50 : 90);
+function typingLoop() {
+  typingEl.textContent = typingTexts[ti].slice(0, tj);
+  if (!typingDel && tj++ === typingTexts[ti].length) typingDel = true;
+  if (typingDel && tj-- === 0) { typingDel = false; ti = (ti + 1) % typingTexts.length; }
+  setTimeout(typingLoop, typingDel ? 50 : 120);
 }
-loop();
+typingLoop();
 
 // Theme toggle
 const root = document.documentElement;
@@ -299,6 +300,23 @@ toggle.onclick = () => {
   root.setAttribute("data-theme", t);
   localStorage.setItem("theme", t);
 };
+
+// Animated Counters
+const counters = document.querySelectorAll('.count');
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText.replace(/,/g,'');
+    const increment = target / 200; // speed
+    if(count < target) {
+      counter.innerText = Math.ceil(count + increment).toLocaleString();
+      requestAnimationFrame(updateCount);
+    } else {
+      counter.innerText = target.toLocaleString();
+    }
+  };
+  updateCount();
+});
 </script>
 
 </body>
