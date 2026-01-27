@@ -5,16 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>24k | Experience Staff Member & Developer</title>
 
-<!-- Icon -->
-<link rel="icon" href="https://cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png?size=512">
-
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
 <meta property="og:title" content="24k | Experience Staff Member & Developer">
 <meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
-<meta property="og:image" content="https://cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png?size=512">
 <meta name="theme-color" content="#5865F2">
 
 <style>
@@ -125,7 +121,7 @@ body {
 
 .counter h3 {
   font-size: 2.2rem;
-  transition: 0.3s;
+  font-weight: 700;
 }
 
 .counter p {
@@ -176,7 +172,7 @@ body {
   font-size: .9rem;
 }
 
-/* Smooth fade-in animation */
+/* Fade-in animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -230,13 +226,14 @@ body {
 <div class="section fade-in">
   <h2>About Me</h2>
   <p style="color:var(--muted);max-width:760px;">
-    I’m <strong>24k</strong>, a management-focused developer with real experience
-    running and moderating large Discord communities.
-    I do <strong>web development</strong> and <strong>Discord bot development</strong>,
-    but my main strength is <strong>staff management, systems, and automation</strong>.
-    <br><br>
+    I’m <strong>24k</strong>, a management-focused developer with extensive experience
+    running and moderating large Discord communities. I do <strong>web development</strong> and
+    <strong>Discord bot development</strong>, but my main expertise is in
+    <strong>staff management, automation, and server operations</strong>.<br><br>
     I’ve worked in a <strong>500,000+ member server</strong>, handling moderation,
-    staff tools, logging systems, and internal management bots.
+    staff tools, logging systems, custom bots, applications, and internal management dashboards.<br><br>
+    I focus on creating efficient systems for large communities, building scalable bots,
+    and ensuring smooth communication between staff teams and members.
   </p>
 </div>
 
@@ -270,7 +267,7 @@ body {
       <h4>Development</h4>
       <p style="color:var(--muted);font-size:.9rem;">
         Clean websites, Discord bots,
-        automation tools, and dashboards
+        automation tools, dashboards, and management systems
       </p>
     </div>
 
@@ -282,7 +279,7 @@ body {
 </div>
 
 <script>
-// Typing effect - smooth and clean
+// Typing effect - clean
 const typingTexts = [
   "Experience Staff Member & Developer",
   "Discord Bot Developer",
@@ -294,9 +291,9 @@ const typingEl = document.getElementById("typing");
 
 function typingLoop() {
   typingEl.textContent = typingTexts[ti].slice(0, tj);
-  if (!typingDel && tj++ === typingTexts[ti].length) typingDel = true;
-  if (typingDel && tj-- === 0) { typingDel = false; ti = (ti + 1) % typingTexts.length; }
-  setTimeout(typingLoop, typingDel ? 50 : 120);
+  if(!typingDel && tj++ === typingTexts[ti].length) typingDel = true;
+  if(typingDel && tj-- === 0) { typingDel = false; ti = (ti + 1) % typingTexts.length; }
+  setTimeout(typingLoop, typingDel ? 60 : 120);
 }
 typingLoop();
 
@@ -304,17 +301,15 @@ typingLoop();
 const root = document.documentElement;
 const toggle = document.getElementById("themeToggle");
 const saved = localStorage.getItem("theme");
-if (saved) root.setAttribute("data-theme", saved);
-
+if(saved) root.setAttribute("data-theme", saved);
 toggle.onclick = () => {
   const t = root.getAttribute("data-theme") === "light" ? "" : "light";
   root.setAttribute("data-theme", t);
   localStorage.setItem("theme", t);
 };
 
-// Animated Counters when in viewport
+// Animated counters - smooth when in viewport
 const counters = document.querySelectorAll('.count');
-
 function animateCounter(counter) {
   const target = +counter.getAttribute('data-target');
   let count = 0;
@@ -330,9 +325,7 @@ function animateCounter(counter) {
   }
   update();
 }
-
-// Check if counters are in viewport
-function handleCounters() {
+function handleCounters(){
   counters.forEach(counter => {
     const rect = counter.getBoundingClientRect();
     if(rect.top < window.innerHeight && !counter.classList.contains('counted')){
