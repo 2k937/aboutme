@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>24k | Experience Staff Member & Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
+<meta property="og:title" content="24k | Experience Staff Member & Developer">
+<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
 <meta name="theme-color" content="#5865F2">
 
 <style>
@@ -48,8 +51,6 @@ body {
   border-radius: 14px;
   padding: 10px 14px;
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: .3s ease;
 }
 
 .theme-toggle { right: 20px; }
@@ -60,105 +61,204 @@ body {
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
 }
 
 .typing {
   margin-top: 14px;
+  font-size: 1.2rem;
   color: var(--muted);
-  min-height: 26px;
+  min-height: 28px;
 }
 
 .typing::after {
   content: "|";
-  margin-left: 5px;
+  margin-left: 6px;
   animation: blink 1s infinite;
 }
 
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.counter {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.section {
+  margin-top: 90px;
+}
+
+.tech {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  text-align: center;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+}
+
+.footer {
+  margin-top: 140px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🔊 Hidden YouTube Audio -->
-<div style="position:absolute; width:0; height:0; overflow:hidden;">
-  <iframe
-    id="ytPlayer"
-    src=""
-    frameborder="0"
-    allow="autoplay"
-  ></iframe>
+<!-- Hidden YouTube Music -->
+<div style="position:absolute;width:0;height:0;overflow:hidden;">
+  <iframe id="ytPlayer" src="" frameborder="0" allow="autoplay"></iframe>
 </div>
 
 <button class="music-toggle" id="musicToggle">🔇</button>
 
 <div class="container">
-  <div class="hero">
-    <h1>24k</h1>
-    <div class="typing" id="typing"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>24k</h1>
+  <div class="typing" id="typing"></div>
+
+  <div class="buttons">
+    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord (@24k_onlyy)</a>
+    <a class="btn" href="https://github.com/2k937" target="_blank">GitHub</a>
+  </div>
+
+  <div class="counter">
+    <div><h3>500,000+</h3><p>Members Managed</p></div>
+    <div><h3>10+</h3><p>Servers Trusted Me</p></div>
+    <div><h3>100%</h3><p>Reliable & Active</p></div>
   </div>
 </div>
 
+<!-- ABOUT -->
+<div class="section">
+  <h2>About Me</h2>
+  <p style="color:var(--muted);max-width:760px;">
+    I’m <strong>24k</strong>, a management-focused developer with extensive experience
+    running and moderating large Discord communities.
+  </p>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <h2>Experience</h2>
+  <div class="tech">
+
+    <div class="card">
+      <h4>Experience Staff Member & Developer</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        500,000+ Members<br>
+        Moderation • Management • Automation
+      </p>
+    </div>
+
+    <!-- Ronix Studios -->
+    <div class="card">
+      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
+      <h4>Ronix Studios Staff Member</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Moderation • Staff Systems • Automation
+      </p>
+      <a class="btn" style="margin-top:12px" href="https://discord.gg/ronixstudios" target="_blank">
+        View Server
+      </a>
+    </div>
+
+    <!-- XynProxy -->
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Sites_2020_Logo.svg/512px-Google_Sites_2020_Logo.svg.png">
+      <h4>XynProxy</h4>
+      <p style="color:var(--muted);font-size:.9rem;">
+        Unblocked games I made for schools
+      </p>
+      <a class="btn" style="margin-top:12px" href="https://sites.google.com/view/xynproxy" target="_blank">
+        View Website
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">© 2025 • Built by 24k</div>
+
+</div>
+
 <script>
-/* ===== Typing Effect ===== */
+/* Typing Effect */
 const texts = [
   "Experienced Staff Member & Developer",
   "Discord Bot Developer",
   "Web Developer",
   "Trusted by Large Servers"
 ];
-
 const typing = document.getElementById("typing");
 let i = 0, j = 0, del = false;
 
 function typeLoop() {
-  const text = texts[i];
-  typing.textContent = text.slice(0, j);
-
-  if (!del) {
-    j++;
-    if (j > text.length) {
-      del = true;
-      setTimeout(() => {}, 1500);
-    }
-  } else {
-    j--;
-    if (j === 0) {
-      del = false;
-      i = (i + 1) % texts.length;
-    }
-  }
+  const t = texts[i];
+  typing.textContent = t.slice(0, j);
+  if (!del && j++ === t.length) del = true;
+  if (del && j-- === 0) { del = false; i = (i + 1) % texts.length; }
   setTimeout(typeLoop, del ? 60 : 110);
 }
 typeLoop();
 
-/* ===== YouTube Music Toggle ===== */
+/* Music Toggle */
 const yt = document.getElementById("ytPlayer");
 const btn = document.getElementById("musicToggle");
-
-let playing = false;
 const videoId = "cX_cEXDIrvk";
+let playing = false;
 
 btn.onclick = () => {
   playing = !playing;
-
-  if (playing) {
-    yt.src =
-      `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
-    btn.textContent = "🔊";
-  } else {
-    yt.src = "";
-    btn.textContent = "🔇";
-  }
+  yt.src = playing
+    ? `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`
+    : "";
+  btn.textContent = playing ? "🔊" : "🔇";
 };
 </script>
 
 </body>
 </html>
 
-
-</body>
-</html>
