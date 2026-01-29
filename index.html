@@ -15,23 +15,23 @@
 
 <style>
 :root {
-  --bg: #0b0f14;
-  --bg-alt: #111827;
-  --card: rgba(255,255,255,0.08);
-  --border: rgba(255,255,255,0.12);
-  --text: #e9ecf1;
+  --bg: #0a0d12;
+  --bg-alt: #0f1520;
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.1);
+  --text: #eef1f7;
   --muted: #9aa4b2;
-  --glow: rgba(88,101,242,.35);
+  --accent: #5865F2;
 }
 
 [data-theme="light"] {
-  --bg: #f5f7fb;
+  --bg: #f4f6fb;
   --bg-alt: #ffffff;
-  --card: rgba(0,0,0,0.05);
-  --border: rgba(0,0,0,0.12);
+  --card: rgba(0,0,0,0.04);
+  --border: rgba(0,0,0,0.08);
   --text: #0b0f14;
   --muted: #555;
-  --glow: rgba(88,101,242,.25);
+  --accent: #5865F2;
 }
 
 * {
@@ -42,77 +42,91 @@
 }
 
 body {
-  background: radial-gradient(circle at top, var(--bg-alt), var(--bg));
+  background: radial-gradient(1200px at top, var(--bg-alt), var(--bg));
   color: var(--text);
   min-height: 100vh;
   transition: .4s ease;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1050px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 70px 18px;
 }
 
+/* Toggles */
 .theme-toggle,
 .music-toggle {
   position: fixed;
-  top: 20px;
-  padding: 10px 14px;
+  top: 16px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--card);
+  display: grid;
+  place-items: center;
   cursor: pointer;
+  backdrop-filter: blur(8px);
 }
 
-.theme-toggle { right: 20px; }
-.music-toggle { left: 20px; }
+.theme-toggle { right: 16px; }
+.music-toggle { left: 16px; }
 
-.hero { text-align: center; }
+/* Hero */
+.hero {
+  text-align: center;
+}
 
 .hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
   font-weight: 700;
-  margin-bottom: 15px;
+  letter-spacing: -0.02em;
 }
 
 .typing {
-  margin-top: 14px;
-  font-size: 1.2rem;
+  margin-top: 12px;
+  font-size: 1.05rem;
   color: var(--muted);
-  min-height: 28px;
-  font-weight: 500;
+  min-height: 26px;
 }
 
+/* Buttons */
 .buttons {
-  margin-top: 25px;
+  margin-top: 28px;
   display: flex;
+  gap: 14px;
   justify-content: center;
-  gap: 15px;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 14px 22px;
+  padding: 13px 20px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
-  transition: .3s ease;
+  transition: .25s ease;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: transparent;
 }
 
 .btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px var(--glow);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
 }
 
+/* Counter */
 .counter {
-  margin-top: 40px;
+  margin-top: 42px;
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 36px;
   flex-wrap: wrap;
 }
 
@@ -121,70 +135,80 @@ body {
 }
 
 .counter h3 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .counter p {
+  font-size: .85rem;
   color: var(--muted);
-  font-size: .9rem;
 }
 
+/* Sections */
 .section {
   margin-top: 90px;
 }
 
 .section h2 {
-  font-size: 2.1rem;
-  margin-bottom: 25px;
+  font-size: 2rem;
+  margin-bottom: 22px;
 }
 
+/* Cards */
 .tech {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
 }
 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 28px;
+  padding: 26px;
   text-align: center;
-  transition: .35s ease;
+  transition: .3s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 0 1px var(--glow), 0 25px 60px var(--glow);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
 }
 
 .card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 18px;
-  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
+/* Footer */
 .footer {
-  margin-top: 140px;
+  margin-top: 120px;
   text-align: center;
+  font-size: .85rem;
   color: var(--muted);
-  font-size: .9rem;
 }
 
-/* Fade-in animation */
+/* Animations */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateY(18px);
+  transition: .7s ease;
 }
 
-/* Hidden YouTube player */
+.fade-in.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .counter { gap: 22px; }
+  .counter h3 { font-size: 1.6rem; }
+}
+
+/* Hidden YouTube */
 #ytPlayer {
   width: 0;
   height: 0;
@@ -208,15 +232,15 @@ body {
   <div class="typing" id="typing"></div>
 
   <div class="buttons">
-    <a class="btn" href="https://discord.gg/bhrmUhjG" target="_blank">
-      Add me on Discord (@24k_onlyy)
+    <a class="btn primary" href="https://discord.gg/bhrmUhjG" target="_blank">
+      Add me on Discord
     </a>
     <a class="btn" href="https://github.com/2k937" target="_blank">
       GitHub
     </a>
   </div>
 
-  <!-- TRUST COUNTER -->
+  <!-- COUNTER -->
   <div class="counter">
     <div>
       <h3 class="count" data-target="500000">0</h3>
@@ -238,13 +262,9 @@ body {
   <h2>About Me</h2>
   <p style="color:var(--muted);max-width:760px;">
     I’m <strong>24k</strong>, a management-focused developer with extensive experience
-    running and moderating large Discord communities. I do <strong>web development</strong> and
-    <strong>Discord bot development</strong>, but my main expertise is in
-    <strong>staff management, automation, and server operations</strong>.<br><br>
-    I’ve worked in a <strong>500,000+ member server</strong>, handling moderation,
-    staff tools, logging systems, custom bots, applications, and internal management dashboards.<br><br>
-    I focus on creating efficient systems for large communities, building scalable bots,
-    and ensuring smooth communication between staff teams and members.
+    running and moderating large Discord communities. I specialize in
+    <strong>staff management, automation, server operations</strong>,
+    web development, and Discord bot development.
   </p>
 </div>
 
@@ -257,19 +277,19 @@ body {
       <h4>Experience Staff Member & Developer</h4>
       <p style="color:var(--muted);font-size:.9rem;">
         500,000+ Members<br>
-        Moderation • Management • Automation<br>
-        Trusted with high-responsibility roles
+        Moderation • Management • Automation
       </p>
     </div>
 
     <div class="card fade-in">
-      <img src="https://images-ext-1.discordapp.net/external/Y0lcka2MUV-7HWzXZ-TgZI_en_U9ZCRUvB4Bq-22sdU/%3Fsize%3D512/https/cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png">
+      <img src="https://cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png?size=512">
       <h4>Ronix Studios Staff Member</h4>
       <p style="color:var(--muted);font-size:.9rem;">
         500,000+ Members<br>
-        Moderation • Staff systems • Automation
+        Staff systems • Automation
       </p>
-      <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
+      <a class="btn" style="margin-top:12px;display:inline-block"
+         href="https://discord.gg/ronixstudios" target="_blank">
         View Server
       </a>
     </div>
@@ -277,8 +297,8 @@ body {
     <div class="card fade-in">
       <h4>Development</h4>
       <p style="color:var(--muted);font-size:.9rem;">
-        Clean websites, Discord bots,
-        automation tools, dashboards, and management systems
+        Websites, Discord bots, dashboards,
+        automation tools & management systems
       </p>
     </div>
 
@@ -290,8 +310,8 @@ body {
 </div>
 
 <script>
-// Typing effect (fixed: no peek)
-const typingTexts = [
+// Typing
+const typingTexts=[
   "Experience Staff Member & Developer",
   "Discord Bot Developer",
   "Web Developer",
@@ -300,57 +320,49 @@ const typingTexts = [
 let ti=0,tj=0,del=false;
 const typingEl=document.getElementById("typing");
 
-function typingLoop(){
-  typingEl.textContent = typingTexts[ti].slice(0,tj);
-  if(!del && tj < typingTexts[ti].length) tj++;
-  else if(!del && tj === typingTexts[ti].length) del=true;
+(function loop(){
+  typingEl.textContent=typingTexts[ti].slice(0,tj);
+  if(!del && tj<typingTexts[ti].length) tj++;
+  else if(!del) del=true;
   else if(del && tj>0) tj--;
-  else { del=false; ti=(ti+1)%typingTexts.length; }
-  setTimeout(typingLoop, del?60:120);
-}
-typingLoop();
+  else{ del=false; ti=(ti+1)%typingTexts.length; }
+  setTimeout(loop,del?60:120);
+})();
 
-// Theme toggle
+// Theme
 const root=document.documentElement;
 const toggle=document.getElementById("themeToggle");
 const saved=localStorage.getItem("theme");
 if(saved) root.setAttribute("data-theme",saved);
 
 toggle.onclick=()=>{
-  const isLight=root.getAttribute("data-theme")==="light";
-  root.setAttribute("data-theme",isLight?"":"light");
-  localStorage.setItem("theme",isLight?"":"light");
-  toggle.textContent=isLight?"🌙":"☀️";
+  const light=root.getAttribute("data-theme")==="light";
+  root.setAttribute("data-theme",light?"":"light");
+  localStorage.setItem("theme",light?"":"light");
+  toggle.textContent=light?"🌙":"☀️";
 };
 
-// Counter fixed
-const counters=document.querySelectorAll(".count");
-function animateCounter(counter,target){
-  let count=0;
+// Counter
+document.querySelectorAll(".count").forEach(counter=>{
+  const target=+counter.dataset.target;
+  let current=0;
   const step=Math.ceil(target/100);
-  const interval=setInterval(()=>{
-    count+=step;
-    if(count>=target){
-      counter.textContent=target>=1000?`${(target/1000).toLocaleString()}k+`:
-                          target>=100?`${target}+`:target;
-      clearInterval(interval);
-    }else counter.textContent=count;
-  },20);
-}
-
-function handleCounters(){
-  counters.forEach(counter=>{
-    const rect=counter.getBoundingClientRect();
-    if(rect.top<window.innerHeight && !counter.classList.contains("counted")){
-      counter.classList.add("counted");
-      animateCounter(counter,+counter.getAttribute("data-target"));
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+      const i=setInterval(()=>{
+        current+=step;
+        if(current>=target){
+          counter.textContent=target>=1000?`${(target/1000).toLocaleString()}k+`:`${target}+`;
+          clearInterval(i);
+        } else counter.textContent=current;
+      },20);
+      obs.disconnect();
     }
   });
-}
-window.addEventListener("scroll",handleCounters);
-window.addEventListener("load",handleCounters);
+  obs.observe(counter);
+});
 
-// Music toggle
+// Music
 const yt=document.getElementById("ytPlayer");
 const musicBtn=document.getElementById("musicToggle");
 const videoId="cX_cEXDIrvk";
@@ -364,10 +376,8 @@ musicBtn.onclick=()=>{
 
 // Fade-in
 document.querySelectorAll(".fade-in").forEach(el=>{
-  new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting) el.classList.add("show");
-    });
+  new IntersectionObserver(e=>{
+    if(e[0].isIntersecting) el.classList.add("show");
   }).observe(el);
 });
 </script>
