@@ -1,244 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>24k | Experience Staff Member & Developer</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24k | Staff & Bot Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<meta name="description" content="24k – Staff Manager, Web Developer & Discord Bot Developer">
-<meta property="og:title" content="24k | Experience Staff Member & Developer">
-<meta property="og:description" content="Management-focused developer with experience in 500k+ member servers">
+<meta name="description" content="24k – Staff Manager & Discord Bot Developer">
 <meta name="theme-color" content="#5865F2">
-
 <style>
-:root {
+:root{
   --bg:#0a0d12;
   --bg-alt:#0f1520;
   --card:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.1);
+  --border:rgba(255,255,255,.12);
   --text:#eef1f7;
   --muted:#9aa4b2;
   --accent:#5865F2;
+  --success:#3ba55c;
 }
-
 [data-theme="light"]{
-  --bg:#f4f6fb;
+  --bg:#f3f5fb;
   --bg-alt:#fff;
-  --card:rgba(0,0,0,.04);
-  --border:rgba(0,0,0,.08);
+  --card:rgba(0,0,0,.05);
+  --border:rgba(0,0,0,.1);
   --text:#0b0f14;
   --muted:#555;
 }
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-
 body{
   background:radial-gradient(1200px at top,var(--bg-alt),var(--bg));
   color:var(--text);
   min-height:100vh;
+  overflow-x:hidden;
 }
+.container{max-width:1100px;margin:auto;padding:64px 18px;position:relative;}
 
-.container{max-width:1050px;margin:auto;padding:70px 18px}
-
+/* TOGGLES */
 .theme-toggle,.music-toggle{
   position:fixed;top:16px;width:42px;height:42px;
   border-radius:12px;border:1px solid var(--border);
   background:var(--card);display:grid;place-items:center;
-  cursor:pointer;backdrop-filter:blur(8px)
+  cursor:pointer;backdrop-filter:blur(8px);z-index:100;
 }
 .theme-toggle{right:16px}
 .music-toggle{left:16px}
 
+/* PAGE ANIMATION */
+.page{opacity:0;transform:translateY(24px);animation:pageIn .8s ease forwards;}
+@keyframes pageIn{to{opacity:1;transform:none}}
+
+/* HERO */
 .hero{text-align:center}
-.hero h1{font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:-.02em}
-.typing{margin-top:12px;color:var(--muted);min-height:26px}
+.hero h1{font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:-.03em;display:flex;justify-content:center;gap:12px;align-items:center;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;padding:6px 10px;border-radius:999px;background:rgba(59,165,92,.15);color:var(--success);border:1px solid rgba(59,165,92,.35);}
+.badge svg{width:14px;height:14px;fill:var(--success);}
+.typing{margin-top:10px;min-height:26px;color:var(--muted);}
 
-.buttons{
-  margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap
-}
-
-.btn{
-  padding:13px 20px;border-radius:14px;
-  border:1px solid var(--border);
-  background:var(--card);color:var(--text);
-  text-decoration:none;font-weight:600;
-  transition:.2s ease
-}
+/* BUTTONS */
+.buttons{margin-top:28px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn{padding:13px 22px;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--text);text-decoration:none;font-weight:600;transition:.25s;}
 .btn.primary{background:var(--accent);border:none}
-.btn:hover{transform:translateY(-3px)}
+.btn:hover{transform:translateY(-3px);}
 
-.counter{
-  margin-top:42px;display:flex;gap:36px;justify-content:center;flex-wrap:wrap
-}
+/* COUNTERS */
+.counter{margin-top:42px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;}
 .counter h3{font-size:2rem}
-.counter p{font-size:.85rem;color:var(--muted)}
+.counter p{font-size:.85rem;color:var(--muted);}
 
+/* SECTIONS */
 .section{margin-top:90px}
 .section h2{font-size:2rem;margin-bottom:22px}
 
-.tech{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px
+/* TABS */
+.tab-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;justify-content:center;position:relative;z-index:1;}
+.tab-btn{padding:10px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);font-weight:600;cursor:pointer;transition:.3s;}
+.tab-btn.active{background:var(--accent);border:none;transform:scale(1.05);}
+.tab-panel{display:none;position:relative;opacity:0;transition:.6s;}
+.tab-panel.show{display:block;opacity:1;animation:slideIn .6s ease forwards;}
+@keyframes slideIn{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* LANG SKILLS */
+.skill{margin-bottom:18px}
+.skill span{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px;}
+.bar{height:10px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden;}
+.fill{height:100%;width:0;background:var(--accent);transition:1.2s ease;width:0;}
+
+/* EXPERIENCE CARD */
+.exp-card{
+  display:flex;gap:16px;align-items:center;background:var(--card);
+  border:1px solid var(--border);border-radius:18px;padding:18px;flex-wrap:wrap;
+  transition:.3s;
 }
-.card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:20px;padding:26px;text-align:center;
-  transition:.3s ease
-}
-.card:hover{transform:translateY(-6px)}
-.card img{width:56px;height:56px;border-radius:12px;margin-bottom:16px}
+.exp-card img{width:72px;height:72px;border-radius:14px;object-fit:cover;}
+.exp-info{flex:1;}
+.exp-info h4{margin-bottom:6px;}
+.exp-info p{color:var(--muted);font-size:.9rem;margin-bottom:12px;}
+.exp-info .btn{margin-top:0;} /* fix spacing */
 
-.footer{margin-top:120px;text-align:center;font-size:.85rem;color:var(--muted)}
+/* FOOTER */
+.footer{margin-top:120px;text-align:center;font-size:.85rem;color:var(--muted);}
 
-.fade-in{opacity:0;transform:translateY(18px);transition:.7s ease}
-.fade-in.show{opacity:1;transform:none}
-
+/* FADE */
+.fade-in{opacity:0;transform:translateY(18px);transition:.7s ease;}
+.fade-in.show{opacity:1;transform:none;}
 #ytPlayer{display:none}
+
+@media(max-width:600px){
+  .section{margin-top:70px}
+  .exp-card{flex-direction:column;align-items:flex-start;}
+  .exp-card img{margin-bottom:12px;}
+}
 </style>
 </head>
 
 <body>
-
 <button class="music-toggle" id="musicToggle">🔇</button>
 <button class="theme-toggle" id="themeToggle">🌙</button>
 
-<!-- click sound -->
-<audio id="clickSound" preload="auto">
-  <source src="https://cdn.jsdelivr.net/gh/jackyzha0/hacker-sounds/click.mp3" type="audio/mpeg">
-</audio>
+<div class="container page">
+  <div class="hero fade-in">
+    <h1>
+      24k
+      <span class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 4 5 1-3 4 .5 5-4.5-2-4.5 2 .5-5-3-4 5-1z"/></svg>
+        Verified Staff & Bot
+      </span>
+    </h1>
+    <div class="typing" id="typing"></div>
 
-<div class="container">
-
-<div class="hero fade-in">
-  <h1>24k</h1>
-  <div class="typing" id="typing"></div>
-
-  <div class="buttons">
-    <a class="btn primary" href="https://discord.gg/bhrmUhjG" target="_blank">Add me on Discord</a>
-    <a class="btn" href="https://github.com/2k937" target="_blank">GitHub</a>
-  </div>
-
-  <div class="counter">
-    <div><h3 class="count" data-target="500000">0</h3><p>Members Managed</p></div>
-    <div><h3 class="count" data-target="100">0</h3><p>Servers Trusted Me</p></div>
-    <div><h3 class="count" data-target="500">0</h3><p>Reliable & Active</p></div>
-  </div>
-</div>
-
-<div class="section fade-in">
-  <h2>About Me</h2>
-  <p style="color:var(--muted);max-width:760px">
-    I’m <strong>24k</strong>, a management-focused developer with experience in
-    large Discord communities, staff systems, automation,
-    web development, and Discord bots.
-  </p>
-</div>
-
-<div class="section fade-in">
-  <h2>Experience</h2>
-  <div class="tech">
-    <div class="card fade-in">
-      <h4>Experience Staff Member & Developer</h4>
-      <p style="color:var(--muted);font-size:.9rem">500k+ Members<br>Management • Automation</p>
+    <div class="buttons">
+      <a class="btn primary" href="https://discord.gg/bhrmUhjG" target="_blank">Discord</a>
+      <a class="btn" href="https://github.com/2k937" target="_blank">GitHub</a>
     </div>
 
-    <div class="card fade-in">
-      <img src="https://cdn.discordapp.com/icons/1352066418744754318/3fa326f1b418eab7142fe949982d7c94.png?size=512">
-      <h4>Ronix Studios</h4>
-      <p style="color:var(--muted);font-size:.9rem">Staff Systems • Automation</p>
-      <a class="btn" style="margin-top:12px;display:inline-block" href="https://discord.gg/ronixstudios" target="_blank">
-        View Server
-      </a>
-    </div>
-
-    <div class="card fade-in">
-      <h4>Development</h4>
-      <p style="color:var(--muted);font-size:.9rem">Websites • Bots • Dashboards</p>
+    <div class="counter">
+      <div><h3 class="count" data-target="500000">0</h3><p>Members Managed</p></div>
+      <div><h3 class="count" data-target="100">0</h3><p>Servers</p></div>
+      <div><h3 class="count" data-target="500">0</h3><p>Trusted</p></div>
     </div>
   </div>
-</div>
 
-<div class="footer fade-in">© 2025 • Built by 24k</div>
+  <!-- TAB NAV -->
+  <div class="tab-buttons fade-in">
+    <button class="tab-btn active" data-tab="experience">Experience</button>
+    <button class="tab-btn" data-tab="languages">Languages</button>
+  </div>
+
+  <!-- TAB PANELS -->
+  <div class="tab-panel show" id="experience">
+    <div class="exp-card">
+      <img src="https://images-ext-1.discordapp.net/external/4r1tqbKf3UCK3tRh5syS2lLYVCqlJ2hifZTOLX6iw6A/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1352066418744754318/15d0ffa53d012f3039ec8ee5a15cfb5d.png" alt="Ronix Studios">
+      <div class="exp-info">
+        <h4>Ronix Studios</h4>
+        <p>Staff Systems • Automation • 500k+ Members</p>
+        <a class="btn primary" href="https://discord.gg/ronixstudios" target="_blank">View Server</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="languages">
+    <div class="skill"><span>HTML / CSS <b>95%</b></span><div class="bar"><div class="fill" data-fill="95"></div></div></div>
+    <div class="skill"><span>Responsive Design <b>90%</b></span><div class="bar"><div class="fill" data-fill="90"></div></div></div>
+    <div class="skill"><span>JavaScript <b>88%</b></span><div class="bar"><div class="fill" data-fill="88"></div></div></div>
+    <div class="skill"><span>Discord Bots <b>92%</b></span><div class="bar"><div class="fill" data-fill="92"></div></div></div>
+    <div class="skill"><span>Lua <b>85%</b></span><div class="bar"><div class="fill" data-fill="85"></div></div></div>
+    <div class="skill"><span>Python <b>80%</b></span><div class="bar"><div class="fill" data-fill="80"></div></div></div>
+  </div>
+
+  <div class="footer fade-in">© 2026 • 24k • Verified Staff & Bot</div>
 </div>
 
 <div id="ytPlayer"></div>
+<audio id="clickSound" preload="auto"><source src="https://cdn.jsdelivr.net/gh/jackyzha0/hacker-sounds/click.mp3"></audio>
 
 <script defer src="https://www.youtube.com/iframe_api"></script>
-
 <script>
 /* CLICK SOUND */
-const clickSound=document.getElementById("clickSound");
-document.querySelectorAll("button,.btn").forEach(el=>{
-  el.addEventListener("click",()=>{
-    clickSound.currentTime=0;
-    clickSound.play().catch(()=>{});
-  });
-});
+document.querySelectorAll("button,.btn").forEach(el=>{el.onclick=()=>{const s=document.getElementById("clickSound");s.currentTime=0;s.play().catch(()=>{});}});
 
 /* TYPING */
-const texts=[
-  "Experience Staff Member & Developer",
-  "Discord Bot Developer",
-  "Web Developer",
-  "Trusted by Large Servers"
-];
-let i=0,j=0,d=false;
+const texts=["Experience Staff Member","Discord Bot Developer","Web Developer"];
+let i=0,j=0,del=false;
 const typing=document.getElementById("typing");
-(function t(){
-  typing.textContent=texts[i].slice(0,j);
-  if(!d&&j<texts[i].length)j++;
-  else if(!d)d=true;
-  else if(j>0)j--;
-  else{d=false;i=(i+1)%texts.length}
-  setTimeout(t,d?60:120);
-})();
+(function type(){typing.textContent=texts[i].slice(0,j);
+if(!del&&j<texts[i].length)j++;else if(!del)del=true;else if(j>0)j--;else{del=false;i=(i+1)%texts.length}
+setTimeout(type,del?60:120);})();
 
 /* THEME */
 const root=document.documentElement;
-const toggle=document.getElementById("themeToggle");
-toggle.onclick=()=>{
-  const l=root.getAttribute("data-theme")==="light";
-  root.setAttribute("data-theme",l?"":"light");
-  toggle.textContent=l?"🌙":"☀️";
-};
+themeToggle.onclick=()=>{const l=root.getAttribute("data-theme")==="light";root.setAttribute("data-theme",l?"":"light");themeToggle.textContent=l?"🌙":"☀️";};
 
-/* COUNTERS + FADE */
+/* FADE + COUNTERS + SKILLS */
 const io=new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(e.isIntersecting){
       e.target.classList.add("show");
       if(e.target.classList.contains("count")){
         let c=0,t=+e.target.dataset.target,s=Math.ceil(t/100);
-        const i=setInterval(()=>{
-          c+=s;
-          if(c>=t){e.target.textContent=(t/1000)+"k+";clearInterval(i)}
-          else e.target.textContent=c;
-        },20);
+        const x=setInterval(()=>{c+=s;if(c>=t){e.target.textContent=t>=1000?(t/1000)+"k+":t;clearInterval(x)}else e.target.textContent=c;},20);
       }
+      if(e.target.classList.contains("fill")){e.target.style.width=e.target.dataset.fill+"%";}
       io.unobserve(e.target);
     }
   });
 });
-document.querySelectorAll(".fade-in,.count").forEach(el=>io.observe(el));
+document.querySelectorAll(".fade-in,.count,.fill").forEach(el=>io.observe(el));
 
-/* MUSIC — REAL FIX */
+/* TABS SLIDE */
+document.querySelectorAll(".tab-btn").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll(".tab-btn").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("show"));
+    b.classList.add("active");
+    document.getElementById(b.dataset.tab).classList.add("show");
+  };
+});
+
+/* MUSIC FIX */
 let player,playing=false;
 function onYouTubeIframeAPIReady(){
-  player=new YT.Player("ytPlayer",{
-    height:"0",width:"0",
-    videoId:"cX_cEXDIrvk",
-    playerVars:{loop:1,playlist:"cX_cEXDIrvk"}
-  });
+  player=new YT.Player("ytPlayer",{videoId:"cX_cEXDIrvk",playerVars:{autoplay:0,loop:1,playlist:"cX_cEXDIrvk"}});
 }
-document.getElementById("musicToggle").onclick=()=>{
+musicToggle.onclick=()=>{
   if(!player)return;
   playing=!playing;
   playing?player.playVideo():player.pauseVideo();
   musicToggle.textContent=playing?"🔊":"🔇";
 };
 </script>
-
 </body>
 </html>
